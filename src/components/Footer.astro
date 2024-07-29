@@ -1,0 +1,135 @@
+---
+import ThemeSw from '../components/ThemeSw.astro';
+const services  = [
+    {
+        label: "TTGit",
+        href: "/services/git",
+    },
+    {
+        label: "TTHost",
+        href: "/services/tthost",
+    },
+    {
+        label: "TTPages",
+        href: "/services/ttpages",
+    },
+    {
+        label: "Assist AI",
+        href: "/services/assistai"
+    }
+];
+
+const sites  = [
+    {
+        label: "Blog",
+        href: "https://blog.ttnrtsite.me/",
+    },
+    {
+        label: "Docs",
+        href: "https://docs.ttnrtsite.me/",
+    },
+    {
+        label: "Status",
+        href: "https://status.ttnrtsite.me/",
+    },
+    {
+        label: "Forums",
+        href: "https://ask.ttnrtsite.me/",
+    },
+    {
+        label: "Feedback",
+        href:  "https://feedback.ttnrtsite.me/"
+    }
+];
+
+---
+
+<footer class="bg-slate-200 dark:bg-gray-900">
+<div class="mx-auto w-full p-4 py-6">
+<div class="md:flex md:justify-between">
+<div class="mb-6 md:mb-0">
+<div class="flex items-center">
+<img src="https://cdn.ttnrtsite.me/images/logo.png" class="h-8 me-3" alt="TTNRT Logo" />
+<span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">TTNRT</span>
+</div>
+<br>
+<div class="flex items-center text-sm">
+    <p>
+    © TTNRT Corperation 2024. All rights reserved.
+    <br>
+    <br>
+    The TTNRT Corperation logo and <span class="font-bold italic">The future is now</span> slogan are trademarks of TTNRT Corperation.
+    <br>
+    <br>
+    Other product and company names and logs mentioned herein are the property of their respective owners.
+    </p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+<div>
+<h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Services</h2>
+<ul class="text-gray-500 dark:text-gray-400 font-medium">
+{services.map((item, index) => (
+<li class="mb-4">
+<a href={item.href} class="hover:underline">{item.label}</a>
+</li>
+))}
+</ul>
+</div>
+<div>
+<h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Sites</h2>
+<ul class="text-gray-500 dark:text-gray-400 font-medium">
+{sites.map((item, index) => (
+<li class="mb-4">
+    <a href={item.href} class="hover:underline ">{item.label}</a>
+</li>
+))}
+</ul>
+</div>
+<div>
+<h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+<ul class="text-gray-500 dark:text-gray-400 font-medium">
+<li class="mb-4">
+<a href="/privacy" class="hover:underline">Privacy Policy</a>
+</li>
+<li class="mb-4">
+<a href="/terms" class="hover:underline">Terms &amp; Conditions</a>
+</li>
+<li class="mb-4">
+<a href="/logohistory" class="hover:underline">Logo history</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<hr class="my-6 border-black sm:mx-auto dark:border-gray-700 lg:my-8" />
+<div class="sm:flex sm:items-center sm:justify-between">
+<ThemeSw />
+<div class="flex mt-4 sm:justify-center sm:mt-0">
+<a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+<i class="fa-brands fa-discord"></i>
+</a>
+<a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+<i class="fa-brands fa-mastodon"></i>
+</a>
+<a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+<i class="fa-brands fa-github"></i>
+</a>
+<a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+<i class="fa-brands fa-reddit"></i>
+</a>
+<a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+<i class="fa-solid fa-code-merge"></i>
+</a>
+<a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+<i class="fa-brands fa-bluesky"></i>
+</a>
+<a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+<i class="fa-brands fa-facebook"></i>
+</a>
+<a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+<i class="fa-brands fa-odysee"></i>
+</a>
+</div>
+</div>
+</footer>

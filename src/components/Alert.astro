@@ -1,0 +1,15 @@
+---
+interface Props {
+	details: string;
+}
+
+const { details } = Astro.props;
+---
+
+<div class="flex items-center p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+  <i class="fa-solid fa-circle-info flex-shrink-0 inline me-3"></i>
+  <span class="sr-only">Info</span>
+  <div>
+    <span class="font-medium">Notice!</span> {details}
+  </div>
+</div>

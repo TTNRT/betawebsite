@@ -1,0 +1,4 @@
+	<div class="flex items-stretch gap-4 justify-center">
+	<Button body="Sign in" href="/signin" />
+	<Button body="Sign up" href="/register" />
+	</div>

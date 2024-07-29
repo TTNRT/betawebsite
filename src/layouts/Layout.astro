@@ -1,0 +1,101 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro'
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="https://cdn.ttnrtsite.me/styles/fontawesome/css/all.min.css" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | TTNRT</title>
+	</head>
+	<body class="bg-white dark:bg-black flex flex-col">
+		<div id="app" class="grow">
+				<div class="flex items-center p-4 text-sm text-yellow-800 bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300" role="alert">
+			<i class="fa-solid fa-triangle-exclamation me-3"></i>
+			<span class="sr-only">Info</span>
+			<div>
+			  <span class="font-medium">Warning!</span> You are viewing the developer preview of our website! Things might be buggy around here!
+			</div>
+		  </div>
+		<Navbar />
+		<slot />
+		</div>
+		<Footer />
+		<script is:inline src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+	</body>
+</html>
+<style is:global>
+	* {
+		padding: 0;
+		margin: 0;
+	}
+	html,
+	body {
+		height: 100vh;
+	}
+	h1 {
+		font-size: 30px;
+		font-weight: bold;
+	}
+	h2 {
+		font-size: 25px;
+		font-weight: bold;
+	}
+	h3 {
+		font-size: 20px;
+		font-weight: bold;
+	}
+	h4 {
+		font-size: 15px;
+		font-weight: bold;
+	}
+	h5 {
+		font-size: 10px;
+		font-weight: bold;
+	}
+	.dark {
+		blockquote,
+		dl,
+		dd,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		hr,
+		figure,
+		p,
+		pre {
+			color: white;
+		}
+	}
+	.dark {
+		#home {
+			color: white;
+		}
+	}
+</style>
+<script>
+  		// It's best to inline this in `head` to avoid FOUC (flash of unstyled content) when changing pages or themes
+  		if (
+    	localStorage.getItem('color-theme') === 'dark' ||
+    	(!('color-theme' in localStorage) &&
+      	window.matchMedia('(prefers-color-scheme: dark)').matches)
+  		) {
+    	document.documentElement.classList.add('dark');
+  		} else {
+    	document.documentElement.classList.remove('dark');
+  		}
+</script>

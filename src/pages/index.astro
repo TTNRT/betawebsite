@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+import Alert from '../components/Alert.astro';
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+	<div class="p-8 container-auto">
+	<section id="banner" class="mb-4">
+	<h1 class="text-center">TTNRT CORP</h1>
+	<p class="text-center italic font-bold">The future is now</p>
+	</section>
+	<section id="services" class="mb-4">
+	<h1 class="text-center">Our services</h1>
+	<p class="text-center mb-3">We provide many services. Here's a list of what we offer!</p>
+	<div class="mx-auto mt-16">
+	<div class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+	<div><Card title="TTGit" icons="fa-solid fa-code-merge" body="A user-friendly git source control system" /></div>
+	<div><Card title="TTHost" icons="fa-solid fa-server" body="Host your website with a isolated VM system" /></div>
+	<div><Card title="TTPages" icons="fa-solid fa-code" body="Host your own static websites" /></div>
+	<div><Card title="Assist AI" icons="fa-solid fa-microchip" body="Your own personal AI assistant" /></div>
+	</div>
+	</div>
+	</section>
+	<section id="partners" class="mb-4">
+	<h1 class="text-center">Our partners</h1>
+	<p class="text-center mb-2">We love when we partner with other companys, especially when we do a contribution!</p>
+	<p class="text-center mb-2">Here is our list of who we work with!</p>
+	<div id="partnerlist">
+	<Alert details="Partners not available here. Check back later!" />
+	</div>
+	<p class="text-center text-sm">Thats all we got! You reached the end of the list!</p>
+	</section>
+	<section id="intrested" class="mb-4">
+	<h1 class="text-center">Intrested in us?</h1>
+	<p class="text-center">You got it! Send us an email!</p>
+	<p class="text-center mb-2"><a href="mailto:support@ttnrtsite.me" class="text-[#1da1f2] hover:text-[#05639e]"><i class="fa-solid fa-envelope"></i> support@ttnrtsite.me</a></p>
+	</section>
+	</div>
+	</main>
+</Layout>
