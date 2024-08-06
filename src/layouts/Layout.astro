@@ -43,7 +43,7 @@ import Alert from '../components/Alert.astro';
 		<slot />
 		</div>
 		<Footer />
-		<script is:inline src="/node_modules/preline/preline.js"></script>
+		<script>import "preline/dist/preline.js";</script>
 	</body>
 </html>
 <style is:global>
@@ -85,3 +85,6 @@ import Alert from '../components/Alert.astro';
     @apply bg-yellow-100 border border-yellow-200 text-sm text-yellow-800 dark:bg-yellow-800/10 dark:border-yellow-900 dark:text-yellow-500;
   }
 </style>
+<script>
+console.log('Hey there! \nYou are viewing the developer preview of our website! \nIf you see any bugs, report them using our email!');
+</script>
