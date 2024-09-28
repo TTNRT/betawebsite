@@ -5,8 +5,8 @@ interface Props {
 
 const { title } = Astro.props;
 import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro'
 import Alert from '../components/Alert.astro';
+import Footer from '../components/Footer.astro'
 ---
 
 <!doctype html>
@@ -23,27 +23,13 @@ import Alert from '../components/Alert.astro';
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} | TTNRT</title>
-		<script is:inline>
-			// This code should be added to <head>.
-			// It's used to prevent page load glitches.
-			const html = document.querySelector('html');
-			const isLightOrAuto = localStorage.getItem('hs_theme') === 'light' || (localStorage.getItem('hs_theme') === 'auto' && !window.matchMedia('(prefers-color-scheme: dark)').matches);
-			const isDarkOrAuto = localStorage.getItem('hs_theme') === 'dark' || (localStorage.getItem('hs_theme') === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-			
-			if (isLightOrAuto && html.classList.contains('dark')) html.classList.remove('dark');
-			else if (isDarkOrAuto && html.classList.contains('light')) html.classList.remove('light');
-			else if (isDarkOrAuto && !html.classList.contains('dark')) html.classList.add('dark');
-			else if (isLightOrAuto && !html.classList.contains('light')) html.classList.add('light');
-		</script>
 	</head>
-	<body class="bg-white dark:bg-black flex flex-col text-black dark:text-white">
-		<div id="app" class="grow">
-		<Alert style="alert-warn" details="You are viewing the developer preview of our website! Things might be buggy around here!" />
+	<body>
 		<Navbar />
+		<div class="p-3">
 		<slot />
 		</div>
 		<Footer />
-		<script>import "preline/dist/preline.js";</script>
 	</body>
 </html>
 <style is:global>
@@ -76,15 +62,48 @@ import Alert from '../components/Alert.astro';
 		font-weight: bold;
 	}
 .alert {
-    @apply p-4;
+    @apply p-4 rounded mb-2 text-sm border;
   }
   .alert-blue {
-    @apply bg-blue-100 border border-blue-200 text-sm text-blue-800 dark:bg-blue-800/10 dark:border-blue-900 dark:text-blue-500;
+    @apply bg-sky-400 dark:bg-sky-700;
   }
   .alert-warn {
-    @apply bg-yellow-100 border border-yellow-200 text-sm text-yellow-800 dark:bg-yellow-800/10 dark:border-yellow-900 dark:text-yellow-500;
+    @apply bg-yellow-400 dark:bg-yellow-950;
   }
+.nav-link {
+	@apply font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500;
+}
+body {
+	@apply bg-white dark:bg-black flex flex-col text-black dark:text-white
+}
+.nav-brand {
+	@apply inline-flex items-center gap-x-2 text-xl font-semibold dark:text-white;
+}
+
+a {
+	@apply dark:text-sky-400 dark:hover:text-sky-300 text-sky-700 hover:text-sky-800;
+}
 </style>
 <script>
 console.log('Hey there! \nYou are viewing the developer preview of our website! \nIf you see any bugs, report them using our email!');
+
+if (
+        localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+
+
+document.getElementById('theme-selector')?.addEventListener('click', () => {
+    if (localStorage.theme === 'dark') {
+      localStorage.theme = 'light';
+      document.documentElement.classList.remove('dark');
+    } else {
+      localStorage.theme = 'dark';
+      document.documentElement.classList.add('dark');
+    }
+  });
 </script>

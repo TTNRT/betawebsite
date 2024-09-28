@@ -1,13 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-import Button from '../components/Button.astro';
 import Alert from '../components/Alert.astro';
 ---
 
 <Layout title="Home">
-	<main>
-	<div class="p-8 container-auto">
+	<Alert style="alert-warn" details="You are viewing the developer preview of our website! Things might be buggy around here!" />
 	<section id="banner" class="mb-4">
 	<h1 class="text-center">TTNRT CORP</h1>
 	<p class="text-center italic font-bold">The future is now</p>
@@ -36,8 +34,6 @@ import Alert from '../components/Alert.astro';
 	<section id="intrested" class="mb-4">
 	<h1 class="text-center">Intrested in us?</h1>
 	<p class="text-center">You got it! Send us an email!</p>
-	<p class="text-center mb-2"><a href="mailto:support@ttnrtsite.me" class="text-[#1da1f2] hover:text-[#05639e]"><i class="fa-solid fa-envelope"></i> support@ttnrtsite.me</a></p>
+	<p class="text-center mb-2"><a href="mailto:support@ttnrtsite.me" class=""><i class="fa-solid fa-envelope"></i> support@ttnrtsite.me</a></p>
 	</section>
-	</div>
-	</main>
 </Layout>
